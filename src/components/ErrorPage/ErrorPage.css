@@ -1,0 +1,4 @@
+.error-bg{
+    background: linear-gradient(to top, #151515, #82525b);
+    min-height: 100vh;
+}

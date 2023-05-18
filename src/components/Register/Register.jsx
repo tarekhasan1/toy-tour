@@ -8,7 +8,7 @@ const Register = () => {
       <Row className='my-5 p-2'>
         <Col md={6} className="image-section">
           {/* Replace the 'image.jpg' with the path to your desired image */}
-          <img src="https://imgcdn2.inkydeals.com/wp-content/uploads/2022/08/Login_Page.png" alt="Registration" className="img-fluid" />
+          <img src="https://imgcdn2.inkydeals.com/wp-content/uploads/2022/08/Login_Page.png" alt="Registration" className="img-fluid w-75" />
         </Col>
         <Col md={6} className="form-section">
           <h1 className='mt-3'>Create an Account</h1>
