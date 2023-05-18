@@ -55,7 +55,7 @@ const Blog = () => {
             variants={cardVariants}
             initial="hidden"
             animate="visible"
-            transition={{ delay: 0.2 }}
+            transition={{ delay: 0.4 }}
           >
             <Card className="animated-card mb-3">
               <Card.Body>
@@ -85,7 +85,7 @@ const Blog = () => {
             variants={cardVariants}
             initial="hidden"
             animate="visible"
-            transition={{ delay: 0.4 }}
+            transition={{ delay: 0.8 }}
           >
             <Card className="animated-card mb-3">
               <Card.Body>
@@ -113,7 +113,7 @@ const Blog = () => {
             variants={cardVariants}
             initial="hidden"
             animate="visible"
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 1.2 }}
           >
             <Card className="animated-card mb-3">
               <Card.Body>

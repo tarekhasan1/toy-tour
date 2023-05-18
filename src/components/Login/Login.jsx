@@ -1,8 +1,34 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Login.css'
+import { useContext, useState } from 'react';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
+    const {logIn } = useContext(AuthContext);
+    const [error, setError] = useState();
+
+    const handleLogin = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+    
+        console.log(email, password);
+        setError("");
+        logIn(email, password)
+          .then((result) => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+          })
+          .catch((err) => {
+            console.log(err);
+            setError("Login Failed! Try Again");
+          });
+      };
+
+
+    
   return (
     <div>
     <Container className='py-5'>
@@ -20,20 +46,23 @@ const Login = () => {
           <div className='p-5 outer-container'>
           <div className='inner-container'>
           <h1 className='text-left my-4'>Login</h1>
-          <Form className='mt-2'>
+          <Form onSubmit={handleLogin} className='mt-2'>
             <Form.Group controlId="formBasicEmail">
               <Form.Label className='mt-3'>Email address</Form.Label>
-              <Form.Control type="email" placeholder="Enter email" />
+              <Form.Control type="email" name='email' placeholder="Enter email" required/>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label className='mt-3'>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control type="password" name='password' placeholder="Password" required/>
             </Form.Group>
 
             <Button className='mt-3' variant="danger" type="submit">
               Login
             </Button>
+            <br />
+            {error && <Form.Text className="text-danger mt-2">{error}</Form.Text>}
+            <br />
             <br />
 
             <Button variant="light" className="mt-3">
