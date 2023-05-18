@@ -21,7 +21,8 @@ const Banner = () => {
     }, []);
 
   return (
-    <div className={backgroundClass}>
+    <div className='height-control'>
+    <div className={backgroundClass} loading="lazy">
       <div className="overlay">
       <div className="banner-content">
         <div className="content-wrapper">
@@ -31,6 +32,7 @@ const Banner = () => {
         </div>
       </div>
       </div>
+    </div>
     </div>
   );
 };
