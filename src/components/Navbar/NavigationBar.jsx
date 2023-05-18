@@ -1,8 +1,20 @@
 import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import './NavigationBar.css'
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProviders";
 
 const NavigationBar = () => {
+  const {  logOut } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logOut()
+      .then()
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
     return (
         <div>
         <Navbar
@@ -47,7 +59,7 @@ const NavigationBar = () => {
                       title='name'
                     />
                     <Link className="d-flex align-items-center text-decoration-none">
-                      <Button variant="secondary">
+                      <Button onClick={handleLogout} variant="secondary">
                         Log Out
                       </Button>
                     </Link>
