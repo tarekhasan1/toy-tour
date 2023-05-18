@@ -26,7 +26,7 @@ const Banner = () => {
       <div className="overlay">
       <div className="banner-content">
         <div className="content-wrapper">
-        <h1>Welcome to Car Toy Tour!</h1>
+        <h1>Welcome to Toy Tour!</h1>
         <p>Discover a world of fun with our amazing collection of car toys.</p>
         <button className="btn p-3">Have a Tour</button>
         </div>
