@@ -48,7 +48,7 @@ const FeaturedToysCard = () => {
           transition={{ duration: 0.5 }}
           style={{ position: "relative", zIndex: 1 }}
         >
-          <Card className="card-bg" style={{ marginBottom: "1rem" }}>
+          <Card className="bg" style={{ marginBottom: "1rem" }}>
             <Card.Img
               variant="top"
               src="https://static-01.daraz.com.bd/p/c07307e69187591189495fa3c5e648c2.jpg"
@@ -78,7 +78,7 @@ const FeaturedToysCard = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           style={{ position: "relative", zIndex: 1 }}
         >
-          <Card className="card-bg" style={{ marginBottom: "1rem" }}>
+          <Card style={{ marginBottom: "1rem" }}>
             <Card.Img
               variant="top"
               src="https://m.media-amazon.com/images/I/41wfPfKHplL.jpg"
@@ -108,7 +108,7 @@ const FeaturedToysCard = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           style={{ position: "relative", zIndex: 1 }}
         >
-          <Card className="card-bg" style={{ marginBottom: "1rem" }}>
+          <Card style={{ marginBottom: "1rem" }}>
             <Card.Img
               variant="top"
               src="https://images-na.ssl-images-amazon.com/images/I/513YAGeOjjL.jpg"
