@@ -9,15 +9,17 @@ const Login = () => {
       <Row>
         <Col md={6}>
           {/* Image */}
-         <div className='p-5 mx-auto'>
-         <img src="https://imgcdn2.inkydeals.com/wp-content/uploads/2022/08/Login_Page.png" alt="Login" className="img-fluid" />
+         <div className='p-5'>
+         <div className='m-5 mx-auto'>
+         <img src="https://www.wlwv.k12.or.us/cms/lib/OR01001812/Centricity/Domain/3225/EBF64076-8B7E-47F5-865A-C6D813CFC416.png" alt="Login" className="img-fluid" />
+         </div>
          </div>
         </Col>
         <Col md={6}>
           {/* Login Form */}
           <div className='p-5 outer-container'>
           <div className='inner-container'>
-          <h1 className='text-center my-4'>Login</h1>
+          <h1 className='text-left my-4'>Login</h1>
           <Form className='mt-2'>
             <Form.Group controlId="formBasicEmail">
               <Form.Label className='mt-3'>Email address</Form.Label>
