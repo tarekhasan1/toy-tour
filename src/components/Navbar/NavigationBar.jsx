@@ -27,23 +27,28 @@ const NavigationBar = () => {
             <Navbar.Brand href="/"> <img className="logo-img" src="https://png.pngtree.com/png-vector/20220816/ourmid/pngtree-letter-t-logo-png-png-image_6111355.png" alt="" /> Toy-Tour</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="mx-auto me-3">
-                <NavLink
+              <Nav className="mx-auto me-5">
+                <NavLink className='me-4'
                   to="/"
                 >
                   Home
                 </NavLink>
-                <NavLink
-                  to="/toys"
+                <NavLink className='me-4'
+                  to="/all-toys"
                 >
                   All Toys
                 </NavLink>
-                <NavLink
+                <NavLink className='me-4'
+                  to="/my-toys"
+                >
+                  My Toys
+                </NavLink>
+                <NavLink className='me-4'
                   to="/add-a-toy"
                 >
                   Add a Toy
                 </NavLink>
-                <NavLink
+                <NavLink className='me-4'
                   to="/blog"
                 >
                   Blog
@@ -60,7 +65,7 @@ const NavigationBar = () => {
                     title={user.displayName}
                   />
                   <Link className="d-flex align-items-center text-decoration-none">
-                    <Button onClick={handleLogout} variant="secondary">
+                    <Button onClick={handleLogout} variant="danger">
                       Log Out
                     </Button>
                   </Link>
@@ -68,7 +73,7 @@ const NavigationBar = () => {
                 </div>
               ) : (
                 <Link to="/login">
-                  <Button variant="secondary">Log In</Button>
+                  <Button variant="danger">Log In</Button>
                 </Link>
               )}
               </Nav>
