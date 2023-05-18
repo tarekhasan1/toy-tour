@@ -1,0 +1,25 @@
+.background-color {
+    background-color: #82525b;
+  }
+  
+  .img-control {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+  
+  .background-color a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 5px;
+  }
+
+  .logo-img{
+    width: 50px;
+  }
+
+  .logo-img:hover{
+    scale: 1.4;
+    transition: 0.3s ease-in-out;
+    transform: rotate(360deg);
+  }
