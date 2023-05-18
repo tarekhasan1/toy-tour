@@ -23,7 +23,7 @@ const Login = () => {
           })
           .catch((err) => {
             console.log(err);
-            setError("Login Failed! Try Again");
+            setError("Login Failed! Please, Try Again!");
           });
       };
 
@@ -34,7 +34,6 @@ const Login = () => {
     <Container className='py-5'>
       <Row>
         <Col md={6}>
-          {/* Image */}
          <div className='p-5'>
          <div className='m-5 mx-auto'>
          <img src="https://www.wlwv.k12.or.us/cms/lib/OR01001812/Centricity/Domain/3225/EBF64076-8B7E-47F5-865A-C6D813CFC416.png" alt="Login" className="img-fluid" />
@@ -42,7 +41,6 @@ const Login = () => {
          </div>
         </Col>
         <Col md={6}>
-          {/* Login Form */}
           <div className='p-5 outer-container'>
           <div className='inner-container'>
           <h1 className='text-left my-4'>Login</h1>
@@ -57,12 +55,11 @@ const Login = () => {
               <Form.Control type="password" name='password' placeholder="Password" required/>
             </Form.Group>
 
-            <Button className='mt-3' variant="danger" type="submit">
+            <Button className='mt-3' variant="secondary" type="submit">
               Login
             </Button>
             <br />
-            {error && <Form.Text className="text-danger mt-2">{error}</Form.Text>}
-            <br />
+            {error && <Form.Text className="mt-3 text-danger text-right">{error}</Form.Text>}
             <br />
 
             <Button variant="light" className="mt-3">
