@@ -1,0 +1,36 @@
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    color: #333;
+  }
+  
+  .footer-column {
+    margin-bottom: 30px;
+  }
+  
+  .footer h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .footer p {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  
+  .social-icons a {
+    margin-right: 10px;
+    color: #555;
+  }
+  
+  .social-icons i {
+    font-size: 18px;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-column {
+      text-align: center;
+    }
+  }
+  

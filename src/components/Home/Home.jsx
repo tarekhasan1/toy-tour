@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import Footer from "../Footer/Footer";
 import NavigationBar from "../Navbar/NavigationBar";
 
 const Home = () => {
@@ -6,7 +7,7 @@ const Home = () => {
         <div>
         <NavigationBar></NavigationBar>
         <Banner></Banner>
-            <h1 className="text-center">homep</h1>
+        <Footer></Footer>
         </div>
     );
 };
