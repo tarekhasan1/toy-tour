@@ -1,5 +1,5 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
@@ -7,6 +7,7 @@ import { AuthContext } from '../../providers/AuthProviders';
 const Login = () => {
     const {logIn } = useContext(AuthContext);
     const [error, setError] = useState();
+    const navigate = useNavigate();
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -20,6 +21,7 @@ const Login = () => {
           .then((result) => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate('/');
           })
           .catch((err) => {
             console.log(err);

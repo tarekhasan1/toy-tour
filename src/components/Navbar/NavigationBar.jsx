@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
 
 const NavigationBar = () => {
-  const {  logOut } = useContext(AuthContext);
+  const {  user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
     logOut()
@@ -27,7 +27,7 @@ const NavigationBar = () => {
             <Navbar.Brand href="/"> <img className="logo-img" src="https://png.pngtree.com/png-vector/20220816/ourmid/pngtree-letter-t-logo-png-png-image_6111355.png" alt="" /> Toy-Tour</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="mx-auto">
+              <Nav className="mx-auto me-3">
                 <NavLink
                   to="/"
                 >
@@ -50,24 +50,27 @@ const NavigationBar = () => {
                 </NavLink>
               </Nav>
               <Nav>
-                  <div>
-                    <div className="d-flex align-items-center">
-                    <img
-                      className="img-control me-2"
-                      src="#"
-                      alt=""
-                      title='name'
-                    />
-                    <Link className="d-flex align-items-center text-decoration-none">
-                      <Button onClick={handleLogout} variant="secondary">
-                        Log Out
-                      </Button>
-                    </Link>
-                    </div>
-                  </div>
-                  <Link to="/login">
-                    <Button variant="secondary">Log In</Button>
+              {user ? (
+                <div>
+                  <div className="d-flex align-items-center">
+                  <img
+                    className="img-control me-2"
+                    src={user.photoURL}
+                    alt=""
+                    title={user.displayName}
+                  />
+                  <Link className="d-flex align-items-center text-decoration-none">
+                    <Button onClick={handleLogout} variant="secondary">
+                      Log Out
+                    </Button>
                   </Link>
+                  </div>
+                </div>
+              ) : (
+                <Link to="/login">
+                  <Button variant="secondary">Log In</Button>
+                </Link>
+              )}
               </Nav>
             </Navbar.Collapse>
           </Container>
