@@ -8,6 +8,7 @@ import Blog from "../components/Blog/Blog";
 import MyToys from "../components/MyToys/MyToys";
 import AllToys from "../components/AllToys/AllToys";
 import AddToy from "../components/AddToy/AddToy";
+import SingleToyData from "../components/SingleToyData/SingleToyData";
 
 const router = createBrowserRouter([
     {
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
         {
           path: '/blog',
           element: <Blog></Blog>
+        },
+        {
+          path: '/all-toys/id',
+          element: <SingleToyData></SingleToyData>
         }
       ]
     },
