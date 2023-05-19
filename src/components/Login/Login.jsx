@@ -5,7 +5,7 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
 
 const Login = () => {
-    const {logIn } = useContext(AuthContext);
+    const {logIn, signInWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState();
     const navigate = useNavigate();
 
@@ -26,6 +26,19 @@ const Login = () => {
           .catch((err) => {
             console.log(err);
             setError("Login Failed! Please, Try Again!");
+          });
+      };
+
+
+      const handleSignInWithGoogle = () => {
+        signInWithGoogle()
+          .then((result) => {
+            const loggedInUser = result.user;
+            console.log(loggedInUser);
+            navigate('/');
+          })
+          .catch((error) => {
+            console.log(error);
           });
       };
 
@@ -64,7 +77,7 @@ const Login = () => {
             {error && <Form.Text className="mt-3 text-danger text-right">{error}</Form.Text>}
             <br />
 
-            <Button variant="light" className="mt-3">
+            <Button onClick={handleSignInWithGoogle} variant="light" className="mt-3">
               <i className='fab fa-google me-2 text-primary'></i>
             Sign in with Google
             </Button>
