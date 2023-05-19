@@ -38,7 +38,9 @@ const NavigationBar = () => {
                 >
                   All Toys
                 </NavLink>
-                <NavLink className='me-4'
+                {
+                  user && <div>
+                  <NavLink className='me-4'
                   to="/my-toys"
                 >
                   My Toys
@@ -48,6 +50,8 @@ const NavigationBar = () => {
                 >
                   Add a Toy
                 </NavLink>
+                  </div>
+                }
                 <NavLink className='me-4'
                   to="/blog"
                 >
