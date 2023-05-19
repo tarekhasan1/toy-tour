@@ -112,9 +112,7 @@ const Gallery = () => {
               <img src={product.image} alt={product.name} className="product-image rounded-3" />
               <div className="product-details">
                 <h2 className="product-name">{product.name}</h2>
-                <div className="product-ratings">Ratings: {product.ratings}</div>
-                <div className="product-price">Price: {product.price}</div>
-                <button className='btn btn-success mt-3'>View Details</button>
+                <div className="product-ratings">Category: Sports Car</div>
               </div>
             </div>
           </Col>
