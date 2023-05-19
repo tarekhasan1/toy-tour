@@ -15,9 +15,9 @@ const FeaturedToysCard = () => {
             if (entry.isIntersecting) {
               controls.start({ scale: 1 });
             }
-            // else{
-            //     controls.start({ scale: 0})
-            // }
+            else{
+                controls.start({ scale: 0})
+            }
           });
         },
         { threshold: 0.2 } // Adjust the threshold value as needed
