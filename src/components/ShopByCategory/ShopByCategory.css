@@ -1,0 +1,9 @@
+.tab-list{
+    display: flex;
+    justify-content: center;
+}
+
+.tab-content {
+    display: flex;
+    justify-content: center;
+  }
