@@ -5,7 +5,7 @@ const SingleToyData = () => {
     const toyData = [];
   return (
     <Card className='bg-image my-5'>
-      <Row  className='d-flex align-items-center justify-content-center' noGutters>
+      <Row  className='d-flex align-items-center justify-content-center'>
         <Col md={8}>
           <div className="p-5">
           <div className="p-5">

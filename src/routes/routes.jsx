@@ -9,6 +9,7 @@ import MyToys from "../components/MyToys/MyToys";
 import AllToys from "../components/AllToys/AllToys";
 import AddToy from "../components/AddToy/AddToy";
 import SingleToyData from "../components/SingleToyData/SingleToyData";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 const router = createBrowserRouter([
     {
@@ -33,7 +34,7 @@ const router = createBrowserRouter([
 
         {
           path: '/my-toys',
-          element: <MyToys></MyToys>
+          element: <ProtectedRoutes><MyToys></MyToys></ProtectedRoutes>
         },
 
         {
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
 
         {
           path: '/add-a-toy',
-          element: <AddToy></AddToy>
+          element: <ProtectedRoutes><AddToy></AddToy></ProtectedRoutes>
         },
         
         {
@@ -52,7 +53,9 @@ const router = createBrowserRouter([
         },
         {
           path: '/all-toys/id',
-          element: <SingleToyData></SingleToyData>
+          element: <ProtectedRoutes>
+          <SingleToyData></SingleToyData>
+          </ProtectedRoutes>
         }
       ]
     },

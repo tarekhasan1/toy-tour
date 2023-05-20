@@ -1,5 +1,5 @@
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
@@ -8,6 +8,8 @@ const Login = () => {
     const {logIn, signInWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState();
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -21,7 +23,7 @@ const Login = () => {
           .then((result) => {
             const loggedUser = result.user;
             console.log(loggedUser);
-            navigate('/');
+            navigate(from, { replace: true });
           })
           .catch((err) => {
             console.log(err);
@@ -35,7 +37,7 @@ const Login = () => {
           .then((result) => {
             const loggedInUser = result.user;
             console.log(loggedInUser);
-            navigate('/');
+            navigate(from, { replace: true });
           })
           .catch((error) => {
             console.log(error);

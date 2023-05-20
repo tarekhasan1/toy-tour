@@ -19,15 +19,19 @@ const provider = new GoogleAuthProvider();
 // eslint-disable-next-line react/prop-types
 const AuthProviders = ({children}) => {
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
           setUser(loggedUser);
           console.log("logged user:", loggedUser);
+          setLoading(false);
         });
     
-        return unsubscribe;
+        return () => {
+          unsubscribe();
+        };
       }, []);
 
 
@@ -62,6 +66,7 @@ const AuthProviders = ({children}) => {
 
       const authInfo = {
         user,
+        loading,
         createUser,
         logIn,
         signInWithGoogle,

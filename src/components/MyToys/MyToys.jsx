@@ -1,4 +1,5 @@
 import { Table, Button, Container } from 'react-bootstrap';
+import './MyToys.css'
 
 const MyToys = () => {
   const toyData = [
@@ -32,10 +33,10 @@ const MyToys = () => {
   };
 
   return (
-    <Container className='my-5'>
+    <Container className='my-5 filler-height'>
     <h1 className='text-center mt-5'>Toys Added by Tarek Hasan</h1>
     <p className='text-center text-secondary mb-5'>Email: tarekhasan101@gmail.com</p>
-    <Table>
+    <Table responsive>
       <thead>
         <tr>
           <th>Name</th>
