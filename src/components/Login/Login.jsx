@@ -3,11 +3,13 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
 import { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
+import useTitle from '../../routes/Hooks/useTitle';
 
 const Login = () => {
     const {logIn, signInWithGoogle } = useContext(AuthContext);
     const [error, setError] = useState();
     const navigate = useNavigate();
+    useTitle('Toy Tour | Login')
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 

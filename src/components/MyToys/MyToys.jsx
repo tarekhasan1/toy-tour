@@ -1,7 +1,9 @@
 import { Table, Button, Container } from 'react-bootstrap';
 import './MyToys.css'
+import useTitle from '../../routes/Hooks/useTitle';
 
 const MyToys = () => {
+  useTitle('Toy Tour | My Toys')
   const toyData = [
     {
       id: 1,

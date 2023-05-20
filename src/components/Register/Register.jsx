@@ -3,8 +3,10 @@ import { useContext, useState } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProviders';
+import useTitle from '../../routes/Hooks/useTitle';
 
 const Register = () => {
+  useTitle('Toy Tour | Registration')
     const { user,createUser } = useContext(AuthContext);
     const [error, setError] = useState("");
     const navigate = useNavigate();

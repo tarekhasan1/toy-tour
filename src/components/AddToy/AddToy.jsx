@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
+import useTitle from '../../routes/Hooks/useTitle';
 
 const AddToy = () => {
+  useTitle('Toy Tour | Add Toy')
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');

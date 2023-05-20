@@ -1,6 +1,8 @@
 import { Container, Table } from 'react-bootstrap';
+import useTitle from '../../routes/Hooks/useTitle';
 
 const AllToys = () => {
+  useTitle('Toy Tour | All Toys')
   const toysData = [
     { id: 1, name: 'Teddy Bear', seller: 'Toy World', category: 'Stuffed Animals', price: 19.99, quantity: 10, details: 'Soft and cuddly teddy bear.' },
     { id: 2, name: 'LEGO Set', seller: 'Brick Emporium', category: 'Building Blocks', price: 49.99, quantity: 5, details: 'Build your own creations with LEGO blocks.' },

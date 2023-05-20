@@ -1,7 +1,9 @@
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import './SingleToyData.css'
+import useTitle from '../../routes/Hooks/useTitle';
 
 const SingleToyData = () => {
+  useTitle('Toy Tour | Toy')
     const toyData = [];
   return (
     <Card className='bg-image my-5'>

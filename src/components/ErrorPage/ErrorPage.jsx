@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import './ErrorPage.css'
+import useTitle from '../../routes/Hooks/useTitle';
 
 const ErrorPage = () => {
+    useTitle('Toy Tour | Error 404')
     return (
         <div className='error-bg'>
         <div className='container p-5 mx-auto'>

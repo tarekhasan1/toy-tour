@@ -1,7 +1,9 @@
 import { Card, Container, Row, Col } from "react-bootstrap";
 import { motion } from "framer-motion";
+import useTitle from "../../routes/Hooks/useTitle";
 
 const Blog = () => {
+  useTitle('Toy Tour | Blog')
   const cardVariants = {
     hidden: { opacity: 0, scale: 0 },
     visible: {
