@@ -1,69 +1,16 @@
 import { Card, Row, Col } from "react-bootstrap";
-import { motion, useAnimation } from "framer-motion";
-import { useEffect, useRef } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import "./FeaturedToysCard.css";
+import featured1 from '../../assets/featured-image/featured1.png';
+import featured2 from '../../assets/featured-image/featured2.png';
+import featured3 from '../../assets/featured-image/featured3.png';
+import { useEffect } from "react";
 
 const FeaturedToysCard = () => {
-  const featuredImage = [
-    "https://ae01.alicdn.com/kf/HLB1jUuTaDjxK1Rjy0Fnq6yBaFXaN/Four-links-fashion-control-Toy-Car-Simulation-Electric-Remote-Control-Car-Children-Model-Toys-Car-Cross.jpg_Q90.jpg_.webp",
-    "https://www.toycompany.pk/wp-content/uploads/2022/10/WhatsApp-Image-2022-10-06-at-8.59.06-PM.jpeg",
-    "https://www.babyshop.com/images/405260/card_xlarge.jpg",
-  ];
-
-  const card1Ref = useRef(null);
-  const card2Ref = useRef(null);
-  const card3Ref = useRef(null);
-
   useEffect(() => {
-    const handleScroll = () => {
-      const cards = [card1Ref, card2Ref, card3Ref];
-
-      cards.forEach((cardRef, index) => {
-        const card = cardRef.current;
-        if (card) {
-          const { top, bottom } = card.getBoundingClientRect();
-          const isVisible = top < window.innerHeight && bottom >= 0;
-
-          if (isVisible) {
-            switch (index) {
-              case 0:
-                controls1.start({ scale: 1 });
-                break;
-              case 1:
-                controls2.start({ scale: 1 });
-                break;
-              case 2:
-                controls3.start({ scale: 1 });
-                break;
-              default:
-                break;
-            }
-          } else {
-            switch (index) {
-              case 0:
-                controls1.start({ scale: 0 });
-                break;
-              case 1:
-                controls2.start({ scale: 0 });
-                break;
-              case 2:
-                controls3.start({ scale: 0 });
-                break;
-              default:
-                break;
-            }
-          }
-        }
-      });
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  });
-
-  const controls1 = useAnimation();
-  const controls2 = useAnimation();
-  const controls3 = useAnimation();
+    AOS.init({ duration: 1000 });
+  }, []);
 
   return (
     <div>
@@ -81,17 +28,11 @@ const FeaturedToysCard = () => {
       <div className="p-5">
         <Row className="justify-content-center">
           <Col md={4} sm={6} xs={12}>
-            <motion.div
-              ref={card1Ref}
-              initial={{ scale: 0 }}
-              animate={controls1}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              style={{ position: "relative", zIndex: 1 }}
-            >
+            <div data-aos="slide-left">
               <Card className="bg" style={{ marginBottom: "1rem" }}>
                 <Card.Img
                   variant="top"
-                  src={featuredImage[0]}
+                  src={featured1}
                   alt="Featured Toy 1"
                 />
                 <Card.Body>
@@ -105,20 +46,14 @@ const FeaturedToysCard = () => {
                   </Card.Text>
                 </Card.Body>
               </Card>
-            </motion.div>
+            </div>
           </Col>
           <Col md={4} sm={6} xs={12}>
-            <motion.div
-              ref={card2Ref}
-              initial={{ scale: 0 }}
-              animate={controls2}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              style={{ position: "relative", zIndex: 1 }}
-            >
+            <div data-aos="fade-down">
               <Card style={{ marginBottom: "1rem" }}>
                 <Card.Img
                   variant="top"
-                  src={featuredImage[1]}
+                  src={featured2}
                   alt="Featured Toy 2"
                 />
                 <Card.Body>
@@ -132,20 +67,14 @@ const FeaturedToysCard = () => {
                   </Card.Text>
                 </Card.Body>
               </Card>
-            </motion.div>
+            </div>
           </Col>
           <Col md={4} sm={6} xs={12}>
-            <motion.div
-              ref={card3Ref}
-              initial={{ scale: 0 }}
-              animate={controls3}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-              style={{ position: "relative", zIndex: 1 }}
-            >
+            <div data-aos="slide-right">
               <Card style={{ marginBottom: "1rem" }}>
                 <Card.Img
                   variant="top"
-                  src={featuredImage[2]}
+                  src={featured3}
                   alt="Featured Toy 3"
                 />
                 <Card.Body>
@@ -159,7 +88,7 @@ const FeaturedToysCard = () => {
                   </Card.Text>
                 </Card.Body>
               </Card>
-            </motion.div>
+            </div>
           </Col>
         </Row>
       </div>
