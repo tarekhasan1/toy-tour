@@ -1,25 +1,33 @@
 .background-color {
   background: linear-gradient(to top, #151515, #82525b);
-  }
-  
-  .img-control {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-  }
-  
-  .background-color a {
-    text-decoration: none;
-    color: rgba(255, 255, 255, 0.5);
-    margin: 0 5px;
-  }
+}
 
-  .logo-img{
-    width: 50px;
-  }
+.active-route {
+  color: #a51d31 !important;
+  background-color: white;
+  padding: 2px 4px 12px 4px;
+  border-radius: 1px 1px 80% 80%;
+  font-weight: 500;
+}
 
-  .logo-img:hover{
-    scale: 1.4;
-    transition: 0.3s ease-in-out;
-    transform: rotate(360deg);
-  }
+.img-control {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.background-color a {
+  text-decoration: none;
+  color: #ffffff;
+  margin: 0 5px;
+}
+
+.logo-img {
+  width: 50px;
+}
+
+.logo-img:hover {
+  scale: 1.4;
+  transition: 0.3s ease-in-out;
+  transform: rotate(360deg);
+}

@@ -29,31 +29,31 @@ const NavigationBar = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mx-auto me-5">
-                <NavLink className='me-4'
+                <NavLink className={({ isActive }) => (isActive ? "active-route me-4" : "me-4")}
                   to="/"
                 >
                   Home
                 </NavLink>
-                <NavLink className='me-4'
+                <NavLink className={({ isActive }) => (isActive ? "active-route me-4" : "me-4")}
                   to="/all-toys"
                 >
                   All Toys
                 </NavLink>
                 {
                   user && <div>
-                  <NavLink className='me-4'
+                  <NavLink className={({ isActive }) => (isActive ? "active-route me-4" : "me-4")}
                   to="/my-toys"
                 >
                   My Toys
                 </NavLink>
-                <NavLink className='me-4'
+                <NavLink className={({ isActive }) => (isActive ? "active-route me-4" : "me-4")}
                   to="/add-a-toy"
                 >
                   Add a Toy
                 </NavLink>
                   </div>
                 }
-                <NavLink className='me-4'
+                <NavLink className={({ isActive }) => (isActive ? "active-route me-4" : "me-4")}
                   to="/blog"
                 >
                   Blog
