@@ -67,11 +67,11 @@ const AddToy = () => {
   return (
     <Container className='my-5'>
     {showNotify && (
-      <Toast className="notify-toast bg-secondary">
-          <Toast.Header>
-              <strong className="me-auto text-danger text-center">Notification</strong>
+      <Toast className="notify-toast bg-success">
+          <Toast.Header className='bg-success'>
+              <strong className="me-auto text-secondary text-center">Notification:</strong>
           </Toast.Header>
-          <Toast.Body className="fw-bold fs-3 text-dark">
+          <Toast.Body className="fw-bold bg-success fs-3 text-dark">
               {showNotify}
           </Toast.Body>
       </Toast>

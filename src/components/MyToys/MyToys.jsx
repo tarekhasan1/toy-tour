@@ -50,6 +50,18 @@ const MyToys = () => {
     console.log(`Deleting toy with id: ${id}`);
   };
 
+
+  const handleSort = (order) => {
+    const sortedResults = [...data].sort((a, b) => {
+        if (order === "asc") {
+            return a.price - b.price;
+        } else {
+            return b.price - a.price;
+        }
+    });
+    setData(sortedResults);
+};
+
   return (
     <Container className='my-5 filler-height'>
     {showToast && (
@@ -64,6 +76,22 @@ const MyToys = () => {
   )}
     <h1 className='text-center mt-5'>Hello! {user.displayName}, Your Added Toys!</h1>
     <p className='text-center text-secondary mb-5'>Email: {user.email}</p>
+    <div className="text-center mb-3">
+    <Button
+        className="mb-2"
+        variant="warning"
+        onClick={() => handleSort("asc")}
+    >
+        Sort by Price (Low to High)
+    </Button>
+    <br />
+    <Button
+        variant="warning"
+        onClick={() => handleSort("desc")}
+    >
+        Sort by Price (High to Low)
+    </Button>
+</div>
     <Table responsive>
       <thead>
         <tr>
