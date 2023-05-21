@@ -6,7 +6,7 @@
   
   .gallery-item {
     margin: 10px;
-    background-color: lightblue;
+    background-color: rgb(134, 90, 111);
     opacity: 0;
     transition: opacity 0.5s;
     box-sizing: border-box;
@@ -14,7 +14,7 @@
   
   .product-image {
     width: 100%;
-    height: auto;
+    height: 300px;
   }
   
   .product-details {
@@ -27,11 +27,7 @@
     margin-bottom: 5px;
   }
   
-  .product-ratings {
+  .product-category {
     font-size: 14px;
     margin-bottom: 5px;
-  }
-  
-  .product-price {
-    font-size: 14px;
   }

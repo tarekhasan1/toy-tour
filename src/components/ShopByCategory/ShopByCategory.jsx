@@ -61,7 +61,7 @@ const ShopByCategory = (props) => {
         <Row className='justify-content-center'>
         {sportsCar.map((card, cardIndex) => (
             <Col className='mt-3' key={cardIndex} lg={4} md={6} sm={12}>
-              <Card data-aos="fade-up">
+              <Card className='category-card-background' data-aos="fade-up">
                 <Card.Img className='image-control' variant="top" src={card.image} alt={card.name} />
                 <Card.Body>
                   <Card.Title className='text-secondary text-center'>{card.name}</Card.Title>
@@ -99,7 +99,7 @@ const ShopByCategory = (props) => {
         <Row className='justify-content-center'>
         {offRoad.map((card, cardIndex) => (
             <Col className='mt-3' key={cardIndex} lg={4} md={6} sm={12}>
-              <Card data-aos="fade-left">
+              <Card className='category-card-background' data-aos="fade-left">
                 <Card.Img className='image-control' variant="top" src={card.image} alt={card.name} />
                 <Card.Body>
                   <Card.Title className='text-secondary text-center'>{card.name}</Card.Title>
