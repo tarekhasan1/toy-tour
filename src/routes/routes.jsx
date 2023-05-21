@@ -40,8 +40,7 @@ const router = createBrowserRouter([
 
         {
           path: '/all-toys',
-          element: <AllToys></AllToys>,
-          loader: () => fetch(`${import.meta.env.VITE_SERVER_API}/cars`)
+          element: <AllToys></AllToys>
         },
 
         {
