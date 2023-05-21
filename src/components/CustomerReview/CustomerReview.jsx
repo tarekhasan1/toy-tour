@@ -15,7 +15,7 @@ const CustomerReview = () => {
       <Container fluid>
         <div className="card-deck">
           <Card data-aos="slide-left" className="review-card">
-            <Card.Img className="card-image" variant="top" src="https://image6.photobiz.com/2090/6_20200320132436_17431602_large.jpg" alt="Customer 1" />
+            <Card.Img className="card-image" variant="top" src="https://img.freepik.com/free-photo/pleased-bearded-man-posing-against-white-wall_176420-32707.jpg" alt="Customer 1" />
             <Card.Body>
               <Card.Title>John Doe</Card.Title>
               <Card.Text>
@@ -35,7 +35,7 @@ const CustomerReview = () => {
           </Card>
 
           <Card data-aos="slide-right" className="review-card">
-            <Card.Img className="card-image" variant="top" src="https://image6.photobiz.com/2090/6_20200320132436_17431602_large.jpg" alt="Customer 3" />
+            <Card.Img className="card-image" variant="top" src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Customer 3" />
             <Card.Body>
               <Card.Title>David Johnson</Card.Title>
               <Card.Text>
