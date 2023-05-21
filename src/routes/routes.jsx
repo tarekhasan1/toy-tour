@@ -53,10 +53,11 @@ const router = createBrowserRouter([
           element: <Blog></Blog>
         },
         {
-          path: '/all-toys/id',
+          path: '/all-toys/:id',
           element: <ProtectedRoutes>
           <SingleToyData></SingleToyData>
-          </ProtectedRoutes>
+          </ProtectedRoutes>,
+          loader: ({params}) => fetch(`${import.meta.env.VITE_SERVER_API}/single-car/${params.id}`)
         }
       ]
     },

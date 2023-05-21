@@ -42,7 +42,7 @@ const NavigationBar = () => {
                 {
                   user && <div>
                   <NavLink className={({ isActive }) => (isActive ? "active-route me-4" : "me-4")}
-                  to="/my-toys"
+                to={`/my-toys/${user.email}`}
                 >
                   My Toys
                 </NavLink>

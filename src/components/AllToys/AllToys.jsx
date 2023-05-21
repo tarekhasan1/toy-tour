@@ -1,12 +1,18 @@
 import { Container, Table } from 'react-bootstrap';
 import useTitle from '../../routes/Hooks/useTitle';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const AllToys = () => {
   useTitle('Toy Tour | All Toys');
+  const navigate = useNavigate();
 
   const data = useLoaderData();
   console.log(data);
+
+  const handleDetails = (id) =>{
+    console.log(id);
+    navigate(`/all-toys/${id}`);
+  }
 
   return (
     <div className="table-responsive">
@@ -25,14 +31,14 @@ const AllToys = () => {
         </thead>
         <tbody>
           {data.map((toy) => (
-            <tr key={toy.id}>
+            <tr key={toy._id}>
               <td>{toy.name}</td>
               <td>{toy.seller}</td>
               <td>{toy.category}</td>
               <td>${toy.price}</td>
               <td>{toy.availableQuantity
               }</td>
-              <td><button title='click to view details' className='btn btn-outline-success'><i className="fa-solid fa-circle-info fs-2"></i></button> </td>
+              <td><button onClick={() => handleDetails(toy._id)} title='click to view details' className='btn btn-outline-success'><i className="fa-solid fa-circle-info fs-2"></i></button> </td>
             </tr>
           ))}
         </tbody>

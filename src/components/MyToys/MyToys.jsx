@@ -1,28 +1,31 @@
 import { Table, Button, Container } from 'react-bootstrap';
 import './MyToys.css'
 import useTitle from '../../routes/Hooks/useTitle';
+import { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const MyToys = () => {
-  useTitle('Toy Tour | My Toys')
-  const toyData = [
-    {
-      id: 1,
-      name: 'Car Toy 1',
-      description: 'A fun and fast car toy',
-      price: '$19.99',
-      quantity: 10,
-      ratings: 4.5
-    },
-    {
-      id: 2,
-      name: 'Car Toy 2',
-      description: 'An interactive car toy with lights and sounds',
-      price: '$24.99',
-      quantity: 5,
-      ratings: 3.8
-    },
-    // Add more toy data as needed
-  ];
+  useTitle('Toy Tour | My Toys');
+  const { user } = useContext(AuthContext);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() =>{
+    const loadData = async()=>{
+      try{
+        const loadedData = await fetch(`${import.meta.env.VITE_SERVER_API}/user-cars/${user.email}`)
+      const data = await loadedData.json();
+      setData(data);
+      setLoading(false);
+      }
+      catch(error){
+        console.log(error);
+        setLoading(false);
+      }
+    };
+    loadData();
+  },[])
+
 
   const handleDelete = (id) => {
     // Handle delete functionality here
@@ -36,8 +39,8 @@ const MyToys = () => {
 
   return (
     <Container className='my-5 filler-height'>
-    <h1 className='text-center mt-5'>Toys Added by Tarek Hasan</h1>
-    <p className='text-center text-secondary mb-5'>Email: tarekhasan101@gmail.com</p>
+    <h1 className='text-center mt-5'>Toys Added by {user.displayName}</h1>
+    <p className='text-center text-secondary mb-5'>Email: {user.email}</p>
     <Table responsive>
       <thead>
         <tr>
@@ -51,18 +54,18 @@ const MyToys = () => {
         </tr>
       </thead>
       <tbody>
-        {toyData.map((toy) => (
-          <tr key={toy.id}>
+        {!loading && Array.isArray(data) && data.map((toy) => (
+          <tr key={toy._id}>
             <td>{toy.name}</td>
             <td>{toy.description}</td>
             <td>{toy.price}</td>
-            <td>{toy.quantity}</td>
-            <td>{toy.ratings}</td>
+            <td>{toy.availableQuantity}</td>
+            <td>{toy.rating}</td>
             <td>
-              <Button variant="primary" onClick={() => handleUpdate(toy.id)}>Update</Button>
+              <Button variant="primary" onClick={() => handleUpdate(toy._id)}>Update</Button>
             </td>
             <td>
-              <Button variant="danger" onClick={() => handleDelete(toy.id)}>Delete</Button>
+              <Button variant="danger" onClick={() => handleDelete(toy._id)}>Delete</Button>
             </td>
           </tr>
         ))}
