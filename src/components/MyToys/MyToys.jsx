@@ -28,7 +28,21 @@ const MyToys = () => {
 
 
   const handleDelete = (id) => {
-    // Handle delete functionality here
+    const proceed = confirm('Are you sure you want to delete?');
+    if(proceed){
+      fetch(`${import.meta.env.VITE_SERVER_API}/delete-car/${id}`, {
+        method: 'DELETE'
+      })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+        if(result.message){
+          alert('Deleted Successful');
+          const remaining = data.filter(d => d._id !== id);
+          setData(remaining);
+        }
+      })
+    }
     console.log(`Deleting toy with id: ${id}`);
   };
 

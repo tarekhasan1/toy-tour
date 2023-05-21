@@ -48,7 +48,7 @@ const AddToy = () => {
       setLoading(false);
       setTimeout(() => {
           setShowNotify(false);
-      }, 2000);
+      }, 3000);
   } catch (error) {
       console.log(error);
       setLoading(false);
