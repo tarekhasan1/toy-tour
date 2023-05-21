@@ -1,5 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import './Footer.css';
+import logo from '../../assets/logo.png';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,18 +11,22 @@ const Footer = () => {
         <Row>
           <Col md={4} className="footer-column text-center">
             <h4>About Us</h4>
+            <div><img className='logo-sizing' src={logo} alt="" /></div>
             <p>
-              <span className='text-danger'>Toy Tour</span> is a leading online retailer of car toys. We
+              <span className='text-danger'> Toy Tour</span> is a leading online retailer of car toys. We
               offer a wide selection of products for children of all ages.
             </p>
           </Col>
           <Col md={4} className="footer-column text-center">
             <h4>Contact Us</h4>
-            <p>Email: info@toytour.com</p>
-            <p>Phone: 123-456-7890</p>
+            <p><span className='fw-semibold'>Email:</span> info@toytour.com</p>
+            <p><span className='fw-semibold'>Phone:</span> 123-456-7890</p>
+            <p><span className='fw-semibold'>Address:</span> 1/1, Park View, BRUR</p>
+            <p>Tajhat thana, Park More, Rangpur.</p>
           </Col>
           <Col md={4} className="footer-column text-center">
             <h4>Follow Us</h4>
+            <p>you can find us in most social media, explore-</p>
             <div className="social-icons">
               <a href="#">
                 <i className="fab fa-facebook-f"></i>
