@@ -55,7 +55,7 @@ const Login = () => {
         <Col md={6}>
          <div className='p-5'>
          <div className='m-5 mx-auto'>
-         <img src="https://www.wlwv.k12.or.us/cms/lib/OR01001812/Centricity/Domain/3225/EBF64076-8B7E-47F5-865A-C6D813CFC416.png" alt="Login" className="img-fluid" />
+         <img src="https://imgs.bharatmatrimony.com/bmimgs/login/login-otp-banner.png" alt="Login" className="img-fluid" />
          </div>
          </div>
         </Col>

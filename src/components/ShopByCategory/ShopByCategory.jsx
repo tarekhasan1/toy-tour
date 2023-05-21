@@ -119,10 +119,10 @@ const ShopByCategory = (props) => {
       {/* Modal code */}
       <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
         <Modal.Header closeButton>
-          <Modal.Title className='text-danger text-center'>You are not allowed to see details without login!</Modal.Title>
+          <Modal.Title className='text-warning text-center'>You are not allowed to see details without login!</Modal.Title>
         </Modal.Header>
         <Modal.Body className='text-center text-secondary'>
-          Please, Login! before you see the car details. <span className='text-warning'>Click Okay button below to continue</span> ... <span className='text-success'>Happy Shopping!</span>
+          Please, Login! before you see the car details. <span className='text-danger'>Click Okay button below to continue</span> ... <span className='text-success'>Happy Shopping!</span>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
