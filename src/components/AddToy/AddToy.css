@@ -1,0 +1,7 @@
+.notify-toast{
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 999999;
+}
