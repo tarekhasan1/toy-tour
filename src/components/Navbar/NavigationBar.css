@@ -11,15 +11,15 @@
 }
 
 .img-control {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
 }
 
 .background-color a {
   text-decoration: none;
   color: #ffffff;
-  margin: 0 5px;
+  margin: 5px 5px;
 }
 
 .logo-img {
@@ -30,4 +30,14 @@
   scale: 1.4;
   transition: 0.3s ease-in-out;
   transform: rotate(360deg);
+}
+
+@media (max-width: 768px) {
+  .active-route {
+    color: #d4808d !important;
+    background-color: #e2e1e1;
+    padding: 2px;
+    border-radius: 2px;
+    font-weight: 500;
+  }
 }

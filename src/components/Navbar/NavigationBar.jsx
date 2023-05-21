@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import './NavigationBar.css'
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProviders";
+import logo from '../../assets/logo.png'
 
 const NavigationBar = () => {
   const {  user, logOut } = useContext(AuthContext);
@@ -25,7 +26,7 @@ const NavigationBar = () => {
           variant="dark"
         >
           <Container>
-            <Navbar.Brand href="/"> <img className="logo-img" src="https://png.pngtree.com/png-vector/20220816/ourmid/pngtree-letter-t-logo-png-png-image_6111355.png" alt="" /> Toy-Tour</Navbar.Brand>
+            <Navbar.Brand href="/"> <img className="logo-img" src={logo} alt="" /> <span className="text-danger fw-bold">T</span>oy <span className="text-dark fw-bold">T</span>our</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mx-auto me-5">
@@ -40,18 +41,19 @@ const NavigationBar = () => {
                   All Toys
                 </NavLink>
                 {
-                  user && <div>
+                  user &&
                   <NavLink className={({ isActive }) => (isActive ? "active-route me-4" : "me-4")}
                 to='/my-toys'
                 >
                   My Toys
                 </NavLink>
-                <NavLink className={({ isActive }) => (isActive ? "active-route me-4" : "me-4")}
+                }
+                {
+                  user && <NavLink className={({ isActive }) => (isActive ? "active-route me-4" : "me-4")}
                   to="/add-a-toy"
                 >
                   Add a Toy
                 </NavLink>
-                  </div>
                 }
                 <NavLink className={({ isActive }) => (isActive ? "active-route me-4" : "me-4")}
                   to="/blog"
