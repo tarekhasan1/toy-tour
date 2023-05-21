@@ -7,3 +7,12 @@
     display: flex;
     justify-content: center;
   }
+
+  .category-card-background{
+    background: linear-gradient(to top, #ffff, #604f4f);
+  }
+
+  .image-control{
+    height: 350px;
+    border-bottom: 2px solid #edcccc;
+  }

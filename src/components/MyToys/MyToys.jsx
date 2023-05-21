@@ -39,7 +39,7 @@ const MyToys = () => {
 
   return (
     <Container className='my-5 filler-height'>
-    <h1 className='text-center mt-5'>Toys Added by {user.displayName}</h1>
+    <h1 className='text-center mt-5'>Hello! {user.displayName}, Your Added Toys!</h1>
     <p className='text-center text-secondary mb-5'>Email: {user.email}</p>
     <Table responsive>
       <thead>
