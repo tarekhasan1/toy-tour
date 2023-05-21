@@ -1,14 +1,18 @@
-import { Table, Button, Container } from 'react-bootstrap';
+import { Table, Button, Container, Toast } from 'react-bootstrap';
 import './MyToys.css'
 import useTitle from '../../routes/Hooks/useTitle';
 import { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProviders';
+import UpdateModal from './UpdateModal';
 
 const MyToys = () => {
   useTitle('Toy Tour | My Toys');
   const { user } = useContext(AuthContext);
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [carId, setCarId] = useState("");
 
   useEffect(() =>{
     const loadData = async()=>{
@@ -24,7 +28,7 @@ const MyToys = () => {
       }
     };
     loadData();
-  },[])
+  },[user.email])
 
 
   const handleDelete = (id) => {
@@ -46,13 +50,18 @@ const MyToys = () => {
     console.log(`Deleting toy with id: ${id}`);
   };
 
-  const handleUpdate = (id) => {
-    // Handle update functionality here
-    console.log(`Updating toy with id: ${id}`);
-  };
-
   return (
     <Container className='my-5 filler-height'>
+    {showToast && (
+      <Toast className="notify-toast">
+          <Toast.Header>
+              <strong className="me-auto">Notification</strong>
+          </Toast.Header>
+          <Toast.Body className="fw-bold fs-3 text-dark">
+              {showToast}
+          </Toast.Body>
+      </Toast>
+  )}
     <h1 className='text-center mt-5'>Hello! {user.displayName}, Your Added Toys!</h1>
     <p className='text-center text-secondary mb-5'>Email: {user.email}</p>
     <Table responsive>
@@ -76,7 +85,10 @@ const MyToys = () => {
             <td>{toy.availableQuantity}</td>
             <td>{toy.rating}</td>
             <td>
-              <Button variant="primary" onClick={() => handleUpdate(toy._id)}>Update</Button>
+              <Button variant="primary" onClick={() => {
+                setShowModal(true);
+                setCarId(toy._id);
+            }}>Update</Button>
             </td>
             <td>
               <Button variant="danger" onClick={() => handleDelete(toy._id)}>Delete</Button>
@@ -85,6 +97,15 @@ const MyToys = () => {
         ))}
       </tbody>
     </Table>
+    {showModal && (
+      <UpdateModal
+          setShowModal={setShowModal}
+          carId={carId}
+          setShowToast={setShowToast}
+          setData={setData}
+          data={data}
+      />
+  )}
     </Container>
   );
 };
