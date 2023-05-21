@@ -1,36 +1,55 @@
 /* eslint-disable react/prop-types */
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { Card, Button, Row, Col } from 'react-bootstrap';
+import { Card, Button, Row, Col, Modal } from 'react-bootstrap';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import './ShopByCategory.css' // Import the CSS file for component styles
-import { useEffect } from 'react';
+import './ShopByCategory.css';
+import { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const ShopByCategory = (props) => {
-  console.log('shop by', props.data);
   const sportsCar = props.data[0];
-  console.log(sportsCar);
-  // eslint-disable-next-line react/prop-types
   const classic = props.data[1];
-  console.log(classic);
   const offRoad = props.data[2];
-  console.log(offRoad);
+  const { user } = useContext(AuthContext);
+  const [show, setShow] = useState(false);
+  const [selectedItemId, setSelectedItemId] = useState('');
 
-    useEffect(() => {
-        AOS.init({ duration: 1500 });
-      }, []);
+  const handleClose = () => {
+    setShow(false);
+    setSelectedItemId('');
+  };
 
+  const handleShow = (id) => {
+    setSelectedItemId(id);
+    setShow(true);
+  };
 
-      const handleViewDetails = (id) =>{
-        console.log(id);
-      }
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    AOS.init({ duration: 1500 });
+  }, []);
 
+  const viewDetails = (id) => {
+    console.log(id);
+    navigate(`/all-toys/${id}`);
+  };
+
+  const buttonToggle = (id) => {
+    console.log(id);
+    if (user) {
+      viewDetails(id);
+    } else {
+      handleShow(id);
+    }
+  };
 
   return (
     <div className="container">
-    <h1 className='text-center my-5'>Shop By Category</h1>
+      <h1 className="text-center my-5">Shop By Category</h1>
       <Tabs>
         <TabList className="tab-list">
           <Tab>Sports Car</Tab>
@@ -49,7 +68,7 @@ const ShopByCategory = (props) => {
                   <Card.Text className='text-success text-center'>Price: {card.price}</Card.Text>
                   <Card.Text className='text-center text-secondary'>Rating: {card.rating}/5</Card.Text>
                   <div className='text-center'>
-                  <Button variant="danger">View Details</Button>
+                  <Button onClick={ () => buttonToggle(card._id)} variant="danger">View Details</Button>
                   </div>
                 </Card.Body>
               </Card>
@@ -68,7 +87,7 @@ const ShopByCategory = (props) => {
                   <Card.Text className='text-success text-center'>Price: ${card.price}</Card.Text>
                   <Card.Text className='text-center text-secondary'>Rating: {card.rating}/5</Card.Text>
                   <div className='text-center'>
-                  <Button variant="danger">View Details</Button>
+                  <Button onClick={ () => buttonToggle(card._id)} variant="danger">View Details</Button>
                   </div>
                 </Card.Body>
               </Card>
@@ -87,7 +106,7 @@ const ShopByCategory = (props) => {
                   <Card.Text className='text-success text-center'>Price: {card.price}</Card.Text>
                   <Card.Text className='text-center text-secondary'>Rating: {card.rating}/5</Card.Text>
                   <div className='text-center'>
-                  <Button onClick={() => handleViewDetails(card._id)} variant="danger">View Details</Button>
+                  <Button onClick={ () => buttonToggle(card._id)} variant="danger">View Details</Button>
                   </div>
                 </Card.Body>
               </Card>
@@ -96,6 +115,24 @@ const ShopByCategory = (props) => {
         </Row>
         </TabPanel>
       </Tabs>
+
+      {/* Modal code */}
+      <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+        <Modal.Header closeButton>
+          <Modal.Title className='text-danger text-center'>You are not allowed to see details without login!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className='text-center text-secondary'>
+          Please, Login! before you see the car details. <span className='text-warning'>Click Okay button below to continue</span> ... <span className='text-success'>Happy Shopping!</span>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button onClick={() => viewDetails(selectedItemId)} variant="success">
+            Okay
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
